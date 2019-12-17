@@ -1,0 +1,25 @@
+{
+  "name": "jest_example",
+  "private": true,
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@bazel/bazel": "^1.2.0",
+    "@bazel/typescript": "^0.42.3",
+    "@jest/core": "24.7.1",
+    "@jest/transform": "24.7.1",
+    "@types/jest": "^24.0.23",
+    "babel-jest": "24.7.1",
+    "babel-plugin-istanbul": "5.1.2",
+    "jest-cli": "24.7.1",
+    "jest-config": "24.7.1",
+    "jest-haste-map": "24.7.1",
+    "jest-resolve": "24.7.1",
+    "jest-runtime": "24.7.1",
+    "typescript": "^3.7.3"
+  },
+  "scripts": {
+    "test": "bazel test ..."
+  }
+}

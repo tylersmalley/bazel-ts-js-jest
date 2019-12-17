@@ -1,0 +1,28 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
+load("@npm//typescript:index.bzl", "tsc")
+load("//:jest.bzl", "jest_test")
+
+ts_library(
+    name = "vehicle",
+    # module_name = "@test/vehicle",
+    tsconfig = "//:tsconfig.json",
+    srcs = glob(
+        ["*.ts", "*.test.ts"]
+    ),
+    deps = ["@npm//@types/jest"],
+)
+
+filegroup(
+    name = "js",
+    srcs = [":vehicle"],
+    output_group = "es5_sources",
+)
+
+jest_test(
+    name = "test",
+    srcs = [":js"],
+    deps = [],
+    jest_config = "jest.config.js",
+)
