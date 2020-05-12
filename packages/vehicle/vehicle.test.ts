@@ -1,10 +1,5 @@
-
-/*
- * NOTE: Import does not work
- * Also tried examples_jest/packages/vehicle/vehicle
- */
-
 import { Vehicle } from './vehicle';
+import { CRAYOLA_24 } from 'example_project/packages/color/color';
 
 let vehicle: Vehicle;
 
@@ -23,3 +18,7 @@ test('exposes make', () => {
 test('expose model', () => {
   expect(vehicle.model).toBe('Outback');
 });
+
+test('has a default random Crayola color', () => {
+  expect(CRAYOLA_24).toContain(vehicle.color);
+})

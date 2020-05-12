@@ -1,3 +1,30 @@
 package(default_visibility = ["//visibility:public"])
 
+load("@rules_pkg//:pkg.bzl", "pkg_tar", "pkg_zip")
+
 exports_files(["jest.bzl", "tsconfig.json"])
+
+pkg_tar(
+    name = "archive-tar",
+    extension = "tar.gz",
+    srcs = ["//packages/color:js", "//packages/vehicle:js"]
+)
+
+pkg_zip(
+    name = "archive-zip",
+    srcs = [
+      "//packages/color:js",
+      "//packages/vehicle:js"
+    ],
+)
+
+# pkg_deb: https://github.com/bazelbuild/rules_pkg/tree/master/pkg#pkg_deb
+# pkg_rpm: https://github.com/bazelbuild/rules_pkg/tree/master/pkg#pkg_rpm
+
+filegroup(
+  name = "archive",
+  srcs = [
+    ":archive-tar",
+    ":archive-zip"
+  ]
+)

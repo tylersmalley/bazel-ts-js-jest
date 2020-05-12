@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "examples_jest/*": ["packages/*"]
+      "example_project/*": ["*"]
     },
     "module": "commonjs",
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "preserveConstEnums": true,
-    "removeComments": true,
-    "target": "es6",
-    "sourceMap": true,
-    "inlineSources": true,
-    "skipLibCheck": true,
-    "experimentalDecorators": true,
+    // "noImplicitAny": true,
+    // "noImplicitThis": true,
+    // "preserveConstEnums": true,
+    // "removeComments": true,
+    "target": "es5",
+    // "sourceMap": true,
+    // "inlineSources": true,
+    // "skipLibCheck": true,
+    // "experimentalDecorators": true,
     "jsx": "react",
-    "lib": ["es2017" ,"dom"]
+    // "lib": ["es2017" ,"dom"],
+    "esModuleInterop": true,
+    "strict": true
   },
-  "exclude": ["bazel-*", "node_modules"]
+  "exclude": ["dist"]
 }

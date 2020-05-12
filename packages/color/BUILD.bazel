@@ -5,26 +5,24 @@ load("@npm//typescript:index.bzl", "tsc")
 load("//:jest.bzl", "jest_test")
 
 ts_library(
-    name = "vehicle",
+    name = "color",
+    # module_name = "@example/color",
     tsconfig = "//:tsconfig.json",
     srcs = glob(
         ["*.ts", "*.test.ts"]
     ),
-    deps = [
-        "@npm//@types/jest",
-        "//packages/color:color"
-    ],
+    deps = ["@npm//@types/jest"],
 )
 
 filegroup(
     name = "js",
-    srcs = [":vehicle"],
+    srcs = [":color"],
     output_group = "es5_sources",
 )
 
 jest_test(
     name = "test",
     srcs = [":js"],
-    deps = ["//packages/color:js"],
+    deps = [],
     jest_config = "jest.config.js",
 )
